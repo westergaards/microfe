@@ -1,0 +1,19 @@
+.layout-container {
+}
+
+.layout-header {
+}
+
+.layout-sidebar-container {
+  display: flex;
+}
+
+.layout-sidebar {
+}
+
+.layout-main {
+  border: 1px solid green;
+  padding: 40px 0;
+  display: flex;
+  flex: 1;
+}
