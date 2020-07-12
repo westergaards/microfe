@@ -17,3 +17,4 @@ There is quite a bit of work to do here, I hope to accomplish the following
 [ ] - Setup @alias
 [ ] - Localization settings
 [ ] - Accessibility
+[ ] - GraphQl
