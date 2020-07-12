@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "workspaces": [
+    "shell",
+    "remote"
+  ],
+  "scripts": {
+    "build": "cd remote && yarn build && cd .. && cd shell && yarn build",
+    "deploy": "cd deploy-remote && serverless deploy && cd .. && cd deploy-shell && serverless deploy"
+  }
+}
