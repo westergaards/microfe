@@ -37,6 +37,7 @@ module.exports = {
       filename: "remoteEntry.js",
       remotes: {
         shell: "shell",
+        remote: "remote",
       },
       exposes: {
         "./RemoteWidget": "./src/RemoteWidget",

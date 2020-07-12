@@ -12,7 +12,7 @@ export const Layout = ({ children }) => {
         <main class="flex overflow-x-hidden overflow-y-auto bg-gray-200">
           <Sidebar />
 
-          <div class="container flex-grow mx-auto px-6 py-8">{children}</div>
+          <div class="flex-grow mx-auto px-6 py-8">{children}</div>
         </main>
       </div>
     </div>

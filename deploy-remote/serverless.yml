@@ -30,8 +30,8 @@ resources:
         AccessControl: PublicRead
         BucketName: ${self:custom.siteName}
         WebsiteConfiguration:
-          IndexDocument: index.xhtml
-          ErrorDocument: index.xhtml
+          IndexDocument: index.html
+          ErrorDocument: index.html
 
     StaticSiteS3BucketPolicy:
       Type: AWS::S3::BucketPolicy

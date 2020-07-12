@@ -1,7 +1,7 @@
 import React from "react"
 import ReactDOM from "react-dom"
 
-import "./index.css"
+import "./assets/main.css"
 
 const Shell = React.lazy(() => import("shell/Shell"))
 

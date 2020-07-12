@@ -9,7 +9,7 @@ plugins:
 custom:
   siteName: microfe-shell.com
   aliasHostedZoneId: Z3AQBSTGFYJSTF # us-east-1
-  aliasDNSName: s3-website-us-east-1.amazonaws.com
+  aliasDNSName: http://microfe-shell.com.s3-website-us-east-1.amazonaws.com/
   s3Sync:
     - bucketName: ${self:custom.siteName}
       localDir: static
