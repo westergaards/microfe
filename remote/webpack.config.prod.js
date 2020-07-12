@@ -3,7 +3,7 @@ const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPl
 
 module.exports = {
   output: {
-    publicPath: "http://microfe-site.com.s3-website-us-east-1.amazonaws.com/",
+    publicPath: "http://microfe-remote.com.s3-website-us-east-1.amazonaws.com/",
     filename: "[name].[chunkhash:4].js",
   },
 
@@ -45,11 +45,10 @@ module.exports = {
       shared: require("./package.json").dependencies,
     }),
     new HtmlWebPackPlugin({
-      templateontent: `
+      templateContent: `
         <html>
         <head>
           <script src="http://microfe-shell.com.s3-website-us-east-1.amazonaws.com/remoteEntry.js"></script>
-          <script src="http://microfe-site.com.s3-website-us-east-1.amazonaws.com/remoteEntry.js"></script>
         </head>
         <body>
           <div id="app"></div>

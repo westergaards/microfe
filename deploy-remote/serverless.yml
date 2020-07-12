@@ -1,15 +1,15 @@
 # Welcome to serverless. Read the docs
 # https://serverless.com/framework/docs/
 
-service: deploy-site
+service: deploy-remote
 
 plugins:
   - serverless-s3-sync
 
 custom:
-  siteName: microfe-site.com
+  siteName: microfe-remote.com
   aliasHostedZoneId: Z3AQBSTGFYJSTF # us-east-1
-  aliasDNSName: s3-website-us-east-1.amazonaws.com
+  aliasDNSName: http://microfe-remote.com.s3-website-us-east-1.amazonaws.com/
   s3Sync:
     - bucketName: ${self:custom.siteName}
       localDir: static
