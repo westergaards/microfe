@@ -1,48 +1,50 @@
-const HtmlWebPackPlugin = require("html-webpack-plugin")
-const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin")
+/* eslint-disable */
+const HtmlWebPackPlugin = require('html-webpack-plugin')
+const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin')
 
 module.exports = {
   output: {
-    publicPath: "http://microfe-shell.com.s3-website-us-east-1.amazonaws.com/",
-    filename: "[name].[chunkhash:4].js",
+    publicPath: 'http://microfe-shell.com.s3-website-us-east-1.amazonaws.com/',
+    filename: '[name].[chunkhash:4].js'
   },
 
   resolve: {
-    extensions: [".jsx", ".js", ".json"],
+    extensions: ['.ts', '.tsx', '.jsx', '.js', '.json']
   },
-
+  devtool: 'source-map',
   devServer: {
-    port: 8080,
+    port: 8080
   },
 
   module: {
     rules: [
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        use: ['style-loader', 'css-loader']
       },
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(js|jsx|ts|tsx)$/,
         exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-        },
-      },
-    ],
+        loader: 'babel-loader',
+        options: {
+          presets: ['@babel/preset-react', '@babel/preset-typescript']
+        }
+      }
+    ]
   },
 
   plugins: [
     new ModuleFederationPlugin({
-      name: "shell",
-      library: { type: "var", name: "shell" },
-      filename: "remoteEntry.js",
+      name: 'shell',
+      library: { type: 'var', name: 'shell' },
+      filename: 'remoteEntry.js',
       remotes: {
-        remote: "remote",
+        remote: 'remote'
       },
       exposes: {
-        "./Shell": "./src/Shell",
+        './Shell': './src/Shell'
       },
-      shared: require("./package.json").dependencies,
+      shared: require('./package.json').dependencies
     }),
     new HtmlWebPackPlugin({
       templateContent: `
@@ -56,7 +58,7 @@ module.exports = {
           <div id="app"></div>
         </body>
       </html>
-    `,
-    }),
-  ],
+    `
+    })
+  ]
 }

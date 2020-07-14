@@ -1,50 +1,56 @@
-const HtmlWebPackPlugin = require("html-webpack-plugin")
-const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin")
+/* eslint-disable */
+// @ts-ignore
+const HtmlWebPackPlugin = require('html-webpack-plugin')
+const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin')
+const path = require('path')
 
 module.exports = {
+  mode: 'development',
   output: {
-    publicPath: "http://localhost:8080/",
+    publicPath: 'http://localhost:8080/'
   },
 
   resolve: {
-    extensions: [".jsx", ".js", ".json"],
+    extensions: ['.ts', '.tsx', '.jsx', '.js', '.json']
   },
-
+  devtool: 'source-map',
   devServer: {
-    port: 8080,
+    contentBase: path.join(__dirname, 'dist'),
+    port: 8080
   },
 
   module: {
     rules: [
       {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        use: ['style-loader', 'css-loader']
       },
       {
-        test: /\.(js|jsx)$/,
+        test: /\.(js|jsx|ts|tsx)$/,
         exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-        },
-      },
-    ],
+        loader: 'babel-loader',
+        options: {
+          presets: ['@babel/preset-react', '@babel/preset-typescript']
+        }
+      }
+    ]
   },
 
   plugins: [
     new ModuleFederationPlugin({
-      name: "shell",
-      library: { type: "var", name: "shell" },
-      filename: "remoteEntry.js",
+      name: 'shell',
+      library: { type: 'var', name: 'shell' },
+      filename: 'remoteEntry.js',
       remotes: {
-        remote: "remote",
+        remote: 'remote'
       },
       exposes: {
-        "./Shell": "./src/Shell",
+        './Shell': './src/Shell'
       },
-      shared: require("./package.json").dependencies,
+      shared: require('./package.json').dependencies
     }),
     new HtmlWebPackPlugin({
-      template: "./src/index.html",
-    }),
-  ],
+      template: './src/index.html'
+    })
+  ]
 }
