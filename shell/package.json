@@ -4,6 +4,7 @@
   "scripts": {
     "build": "rm -rf ./dist/** && npm run build:css && webpack --mode production --env=prod && cp -R ./dist/** ../deploy-shell/static",
     "build:dev": "npm run build:css && webpack --mode development --env=dev",
+    "lint": "if [ -z \"$CI\" ]; then npx eslint '*/**/*.{js,ts,tsx}' --fix --cache; else npx eslint . --fix; fi",
     "start": "npm run watch:css && webpack-dev-server --open --mode development --env=dev",
     "start:live": "npm run watch:css &&webpack-dev-server --open --mode development --liveReload",
     "build:css": "postcss src/assets/tailwind.css -o src/assets/main.css",

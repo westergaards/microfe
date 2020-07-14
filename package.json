@@ -6,7 +6,9 @@
   ],
   "scripts": {
     "build": "cd remote && yarn build && cd .. && cd shell && yarn build",
-    "deploy": "cd deploy-remote && serverless deploy && cd .. && cd deploy-shell && serverless deploy"
+    "deploy": "cd deploy-remote && serverless deploy && cd .. && cd deploy-shell && serverless deploy",
+    "lint:staged": "lint-staged",
+    "danger": "./node_modules/.bin/danger local"
   },
   "devDependencies": {
     "commitizen": "^4.1.2",
@@ -18,12 +20,12 @@
   "husky": {
     "hooks": {
       "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true",
-      "pre-commit": "yarn lint-staged && yarn danger"
+      "pre-commit": "yarn lint:staged && yarn danger"
     }
   },
   "lint-staged": {
     "*.{js,ts,tsx}": [
-      "eslint --fix",
+      "cd \"./shell\" && yarn lint",
       "git add -A"
     ]
   },
