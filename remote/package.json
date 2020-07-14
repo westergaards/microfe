@@ -1,0 +1,35 @@
+{
+  "name": "microfe-remote",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "rm -rf ./dist/** && npm run build:css && webpack --mode production --env=prod && cp -R ./dist/** ../deploy-remote/static",
+    "build:dev": "npm run watch:css && webpack --mode development --env=dev",
+    "start": "npm run watch:css && webpack-dev-server --open --mode development --env=dev",
+    "start:live": "npm run watch:css && webpack-dev-server --open --mode development --liveReload",
+    "build:css": "postcss src/assets/tailwind.css -o src/assets/main.css",
+    "watch:css": "postcss src/assets/tailwind.css -o src/assets/main.css"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "steve westergaard"
+  },
+  "devDependencies": {
+    "@babel/core": "7.9.6",
+    "@babel/preset-env": "^7.10.3",
+    "@babel/preset-react": "7.9.4",
+    "autoprefixer": "^9.8.4",
+    "babel-loader": "8.1.0",
+    "css-loader": "^3.5.3",
+    "html-webpack-plugin": "git://github.com/ScriptedAlchemy/html-webpack-plugin#master",
+    "postcss-cli": "^7.1.1",
+    "style-loader": "1.2.1",
+    "webpack": "5.0.0-beta.20",
+    "webpack-cli": "3.3.11",
+    "webpack-dev-server": "3.11.0"
+  },
+  "dependencies": {
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
+    "tailwindcss": "^1.4.6"
+  }
+}

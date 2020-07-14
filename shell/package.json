@@ -23,10 +23,7 @@
     "@typescript-eslint/parser": "^3.6.1",
     "autoprefixer": "^9.8.4",
     "babel-loader": "8.1.0",
-    "commitizen": "^4.1.2",
     "css-loader": "^3.5.3",
-    "cz-conventional-changelog": "^3.2.0",
-    "danger": "^10.2.1",
     "eslint": "^7.4.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-import": "^2.22.0",
@@ -34,8 +31,6 @@
     "eslint-plugin-react": "^7.20.3",
     "eslint-plugin-react-hooks": "^4.0.8",
     "html-webpack-plugin": "git://github.com/ScriptedAlchemy/html-webpack-plugin#master",
-    "husky": "^4.2.5",
-    "lint-staged": "^10.2.11",
     "postcss-cli": "^7.1.1",
     "prettier": "^2.0.5",
     "prettier-tslint": "^0.4.2",
@@ -48,27 +43,11 @@
   "dependencies": {
     "@types/react-dom": "^16.9.8",
     "@typescript-eslint/eslint-plugin": "^3.6.1",
+    "danger": "^10.2.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-router": "6.0.0-alpha.5",
     "react-router-dom": "6.0.0-alpha.5",
     "tailwindcss": "^1.4.6"
-  },
-  "husky": {
-    "hooks": {
-      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true",
-      "pre-commit": "yarn lint-staged && yarn danger"
-    }
-  },
-  "lint-staged": {
-    "*.{js,ts,tsx}": [
-      "eslint --fix",
-      "git add -A"
-    ]
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog/"
-    }
   }
 }
