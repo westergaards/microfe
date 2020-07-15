@@ -17,20 +17,20 @@
     "concurrently": "^5.1.0",
     "cz-conventional-changelog": "^3.2.0",
     "danger": "^10.2.1",
+    "eslint": "^7.4.0",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
+    "prettier": "^2.0.5",
     "wsrun": "^5.2.0"
   },
   "husky": {
     "hooks": {
       "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true",
-      "pre-commit": "yarn lint:staged && yarn danger"
+      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
-    "*.{js,ts,tsx}": [
-      "git add -A"
-    ]
+    "*.js": "yarn workspace microfe-shell lint"
   },
   "config": {
     "commitizen": {

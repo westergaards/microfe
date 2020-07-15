@@ -13,7 +13,7 @@ export default function Shell() {
         <ErrorBoundary fallback={<div>there was an error</div>}>
           <React.Suspense fallback={<div>loading</div>}>
             <Routes>
-              <Route path="vehicle/*" element={<RemoteWidget />} />
+              <Route path="vehicle/" element={<RemoteWidget />} />
             </Routes>
           </React.Suspense>
         </ErrorBoundary>
