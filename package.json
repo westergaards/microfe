@@ -6,6 +6,7 @@
   ],
   "scripts": {
     "build": "cd remote && yarn build && cd .. && cd shell && yarn build",
+    "commit": "npx git-cz",
     "deploy": "cd deploy-remote && serverless deploy && cd .. && cd deploy-shell && serverless deploy",
     "lint:staged": "lint-staged",
     "danger": "./node_modules/.bin/danger local",
