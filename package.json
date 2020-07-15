@@ -8,14 +8,18 @@
     "build": "cd remote && yarn build && cd .. && cd shell && yarn build",
     "deploy": "cd deploy-remote && serverless deploy && cd .. && cd deploy-shell && serverless deploy",
     "lint:staged": "lint-staged",
-    "danger": "./node_modules/.bin/danger local"
+    "danger": "./node_modules/.bin/danger local",
+    "serve": "wsrun --parallel serve",
+    "start": "concurrently \"wsrun --parallel start\""
   },
   "devDependencies": {
     "commitizen": "^4.1.2",
+    "concurrently": "^5.1.0",
     "cz-conventional-changelog": "^3.2.0",
     "danger": "^10.2.1",
     "husky": "^4.2.5",
-    "lint-staged": "^10.2.11"
+    "lint-staged": "^10.2.11",
+    "wsrun": "^5.2.0"
   },
   "husky": {
     "hooks": {

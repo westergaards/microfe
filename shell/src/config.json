@@ -1,7 +1,7 @@
 {
   "menu": [
     { "id": 1, "title": "remote 1", "path": "/vehicle", "widget": "RemoteWidget" },
-    { "id": 1, "title": "remote 2", "path": "/remote2" },
-    { "id": 1, "title": "remote 3", "path": "/remote3" }
+    { "id": 2, "title": "remote 2", "path": "/remote2" },
+    { "id": 3, "title": "remote 3", "path": "/remote3" }
   ]
 }

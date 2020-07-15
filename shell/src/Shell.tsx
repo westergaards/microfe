@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Layout } from './components'
 import ErrorBoundary from './helpers/ErrorBoundary'
+import './assets/main.css'
 
 const RemoteWidget = React.lazy(() => import('remote/RemoteWidget'))
 

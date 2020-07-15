@@ -8,7 +8,7 @@
 //       // })
 //   ]
 // }
-const tailwindcss = require('tailwindcss')
+
 module.exports = {
-  plugins: [tailwindcss('./tailwind.js'), require('autoprefixer')]
+  plugins: [require('postcss-import'), require('tailwindcss')('./tailwind.js'), require('autoprefixer')]
 }
