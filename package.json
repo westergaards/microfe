@@ -29,7 +29,6 @@
   },
   "lint-staged": {
     "*.{js,ts,tsx}": [
-      "cd \"./shell\" && yarn lint",
       "git add -A"
     ]
   },
