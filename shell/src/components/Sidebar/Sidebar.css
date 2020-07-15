@@ -5,3 +5,52 @@
 .sidebar-item {
   padding: 20px 0;
 }
+
+a {
+  position: relative;
+  text-decoration: none;
+  transition: color 0.4s ease-out;
+}
+
+a:hover {
+  right: 0;
+  text-decoration: none;
+}
+
+a:hover:after {
+  border-color: rgb(248, 162, 44);
+  right: 0;
+  top: 20px;
+}
+
+a:after {
+  border-radius: 1em;
+  border-top: 0.1em solid rgb(248, 162, 44);
+  content: '';
+  position: absolute;
+  right: 100%;
+  bottom: 0.14em;
+  left: 0;
+  top: 20px;
+  transition: right 0.4s cubic-bezier(0, 0.5, 0, 1), border-color 0.4s ease-out;
+}
+
+a:hover:after {
+  right: 0;
+  top: 20px;
+}
+
+a.active:after {
+  border-color: rgb(248, 162, 44);
+  right: 0;
+  top: 20px;
+}
+
+.collapse {
+  transform: translateX(100%);
+  transition: transform ease-out 0.3s;
+}
+
+.expand {
+  transform: translateX(0);
+}

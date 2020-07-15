@@ -12,7 +12,7 @@ export const Layout: FC<LayoutProps> = ({ children }: LayoutProps) => (
     <Header />
 
     <div className="flex-1 flex flex-col overflow-hidden">
-      <main className="flex overflow-x-hidden overflow-y-auto bg-gray-200">
+      <main className="flex flex-1 overflow-x-hidden overflow-y-auto bg-gray-200">
         <Sidebar />
 
         <div className="flex-grow mx-auto px-6 py-8">{children}</div>

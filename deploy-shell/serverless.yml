@@ -13,6 +13,7 @@ custom:
   s3Sync:
     - bucketName: ${self:custom.siteName}
       localDir: static
+      deleteRemoved: true
 
 provider:
   name: aws

@@ -2,7 +2,7 @@
   "name": "microfe-shell",
   "version": "1.0.0",
   "scripts": {
-    "build": "rm -rf ./dist/** && npm run build:css && webpack --mode production --env=prod && cp -R ./dist/** ../deploy-shell/static",
+    "build": "NODE_ENV=production && rm -rf ./dist/** && rm -rf ../deploy-shell/static/**  && npm run build:css && webpack --mode production --env=prod && cp -R ./dist/** ../deploy-shell/static",
     "build:dev": "npm run build:css && webpack --mode development --env=dev",
     "lint": "if [ -z \"$CI\" ]; then npx eslint '*/**/*.{js,ts,tsx}' --fix --cache; else npx eslint . --fix; fi",
     "start": "npm run watch:css && webpack-dev-server --open --mode development --env=dev",
@@ -32,9 +32,12 @@
     "eslint-plugin-react": "^7.20.3",
     "eslint-plugin-react-hooks": "^4.0.8",
     "html-webpack-plugin": "git://github.com/ScriptedAlchemy/html-webpack-plugin#master",
+    "mini-css-extract-plugin": "^0.9.0",
     "postcss-cli": "^7.1.1",
+    "postcss-loader": "^3.0.0",
     "prettier": "^2.0.5",
     "prettier-tslint": "^0.4.2",
+    "purgecss": "^2.3.0",
     "style-loader": "1.2.1",
     "typescript": "^3.9.6",
     "webpack": "5.0.0-beta.20",
@@ -42,11 +45,14 @@
     "webpack-dev-server": "3.11.0"
   },
   "dependencies": {
+    "@fullhuman/postcss-purgecss": "^2.3.0",
     "@types/react-dom": "^16.9.8",
     "@typescript-eslint/eslint-plugin": "^3.6.1",
+    "classnames": "^2.2.6",
     "danger": "^10.2.1",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
+    "react-feather": "^2.0.8",
     "react-router": "6.0.0-alpha.5",
     "react-router-dom": "6.0.0-alpha.5",
     "tailwindcss": "^1.4.6"
